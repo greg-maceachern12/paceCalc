@@ -1,33 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pace Converter</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-200 via-purple-100 to-red-200">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/favicon-48x48.png"
+      sizes="48x48"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+  </head>
+  <body
+    class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-200 via-purple-100 to-red-200"
+  >
     <div class="container bg-white p-8 rounded-lg shadow-lg max-w-md fade-in">
-        <h1 class="text-2xl font-bold text-center text-gray-700 mb-6">🏃‍♂️ Pace Converter 🏃‍♀️</h1>
-        <div class="input-group mb-4">
-            <label for="minutes" class="block text-sm font-medium text-gray-700">⏱️ Pace:</label>
-            <div class="flex space-x-2">
-                <input type="number" id="minutes" min="0" placeholder="Minutes" required class="w-full border border-gray-300 rounded-md px-3 py-2">
-                <input type="number" id="seconds" min="0" max="59" placeholder="Seconds" required class="w-full border border-gray-300 rounded-md px-3 py-2">
-            </div>
+      <h1 class="text-2xl font-bold text-center text-gray-700 mb-6">
+        🏃‍♂️ Pace Converter 🏃‍♀️
+      </h1>
+      <div class="input-group mb-4">
+        <label for="minutes" class="block text-sm font-medium text-gray-700"
+          >⏱️ Pace:</label
+        >
+        <div class="flex space-x-2">
+          <input
+            type="number"
+            id="minutes"
+            min="0"
+            placeholder="Minutes"
+            required
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
+          <input
+            type="number"
+            id="seconds"
+            min="0"
+            max="59"
+            placeholder="Seconds"
+            required
+            class="w-full border border-gray-300 rounded-md px-3 py-2"
+          />
         </div>
-        <div class="input-group mb-4">
-            <label for="unit" class="block text-sm font-medium text-gray-700">🛠️ Unit:</label>
-            <select id="unit" class="w-full border border-gray-300 rounded-md px-3 py-2">
-                <option value="kmToMile">min/km to min/mile</option>
-                <option value="mileToKm">min/mile to min/km</option>
-            </select>
-        </div>
-        <button onclick="convertPace()" class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 rounded-md">🔄 Convert</button>
-        <div id="result" class="mt-4 text-center font-bold"></div>
+      </div>
+      <div class="input-group mb-4">
+        <label for="unit" class="block text-sm font-medium text-gray-700"
+          >🛠️ Unit:</label
+        >
+        <select
+          id="unit"
+          class="w-full border border-gray-300 rounded-md px-3 py-2"
+        >
+          <option value="kmToMile">min/km to min/mile</option>
+          <option value="mileToKm">min/mile to min/km</option>
+        </select>
+      </div>
+      <button
+        onclick="convertPace()"
+        class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 rounded-md"
+      >
+        🔄 Convert
+      </button>
+      <div id="result" class="mt-4 text-center font-bold"></div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
