@@ -1,81 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pace Converter</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .bg-orange-gradient { background: linear-gradient(135deg, #ff9f1c, #ffbf69); }
+        .bg-blue-gradient { background: linear-gradient(135deg, #2ec4b6, #cbf3f0); }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="absolute inset-0 bg-gradient-to-br from-orange-200/30 to-teal-200/30"></div>
+    <div class="container bg-white/90 p-8 rounded-lg shadow-lg max-w-md fade-in relative z-10 backdrop-blur-sm">
+        <h1 id="pace-converter" class="text-3xl font-bold text-center text-gray-800 mb-6">
+            🏃‍♂️ Pace Converter 🏃‍♀️
+        </h1>
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon-48x48.png"
-      sizes="48x48"
-    />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      href="/assets/apple-touch-icon.png"
-    />
-    <link rel="manifest" href="/assets/site.webmanifest" />
-  </head>
-  <body
-    class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-200 via-purple-100 to-red-200"
-  >
-    <div class="container bg-white p-8 rounded-lg shadow-lg max-w-md fade-in">
-      <h1 class="text-2xl font-bold text-center text-gray-700 mb-6">
-        🏃‍♂️ Pace Converter 🏃‍♀️
-      </h1>
-      <div class="input-group mb-4">
-        <label for="minutes" class="block text-sm font-medium text-gray-700"
-          >⏱️ Pace:</label
-        >
-        <div class="flex space-x-2">
-          <input
-            type="number"
-            id="minutes"
-            min="0"
-            placeholder="Minutes"
-            required
-            class="w-full border border-gray-300 rounded-md px-3 py-2"
-          />
-          <input
-            type="number"
-            id="seconds"
-            min="0"
-            max="59"
-            placeholder="Seconds"
-            required
-            class="w-full border border-gray-300 rounded-md px-3 py-2"
-          />
+        <div class="mb-6">
+            <label for="pace" class="block text-lg font-medium text-gray-700 mb-2">⏱️ Pace:</label>
+            <div class="flex space-x-2">
+                <input type="number" id="minutes" placeholder="Minutes" class="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">
+                <input type="number" id="seconds" placeholder="Seconds" class="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
         </div>
-      </div>
-      <div class="input-group mb-4">
-        <label for="unit" class="block text-sm font-medium text-gray-700"
-          >🛠️ Unit:</label
-        >
-        <select
-          id="unit"
-          class="w-full border border-gray-300 rounded-md px-3 py-2"
-        >
-          <option value="kmToMile">min/km to min/mile</option>
-          <option value="mileToKm">min/mile to min/km</option>
-        </select>
-      </div>
-      <button
-        onclick="convertPace()"
-        class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 rounded-md"
-      >
-        🔄 Convert
-      </button>
-      <div id="result" class="mt-4 text-center font-bold"></div>
+
+        <div class="mb-6">
+            <label class="block text-lg font-medium text-gray-700 mb-2">🛠️ Unit:</label>
+            <div class="flex bg-gray-200 rounded-lg p-1">
+                <button id="kmToMile" class="flex-1 py-2 px-4 rounded-md bg-orange-gradient text-white font-medium focus:outline-none" onclick="setUnit('kmToMile')">km to mile</button>
+                <button id="mileToKm" class="flex-1 py-2 px-4 rounded-md text-gray-700 font-medium focus:outline-none" onclick="setUnit('mileToKm')">mile to km</button>
+            </div>
+        </div>
+
+        <button onclick="convertPace()" class="w-full py-3 px-4 bg-blue-gradient text-white font-bold rounded-md hover:opacity-90 transition duration-300 ease-in-out">
+            🔄 Convert
+        </button>
+
+        <div id="result" class="mt-6 text-center text-lg text-gray-800 hidden"></div>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
