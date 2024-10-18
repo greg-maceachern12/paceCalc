@@ -4,7 +4,7 @@ function setUnit(unit) {
     currentUnit = unit;
     document.getElementById('kmToMile').classList.toggle('bg-orange-gradient', unit === 'kmToMile');
     document.getElementById('kmToMile').classList.toggle('text-white', unit === 'kmToMile');
-    document.getElementById('mileToKm').classList.toggle('bg-orange-gradient', unit === 'mileToKm');
+    document.getElementById('mileToKm').classList.toggle('bg-blue-gradient', unit === 'mileToKm');
     document.getElementById('mileToKm').classList.toggle('text-white', unit === 'mileToKm');
 }
 

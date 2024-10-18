@@ -31,9 +31,13 @@
 }
 
 .bg-orange-gradient {
-    background: linear-gradient(135deg, #ff9f1c, #ffbf69);
+    background: linear-gradient(135deg, #f89946, #f1b85c);
 }
 
 .bg-blue-gradient {
-    background: linear-gradient(135deg, #2ec4b6, #cbf3f0);
+    background: linear-gradient(135deg, #6cbaef, #7ac5f7);
+}
+
+.bg-purple-gradient {
+    background: linear-gradient(135deg, #b159d6, #d18bed);
 }
