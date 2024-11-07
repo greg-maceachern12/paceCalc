@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const PaceConverter = () => {
@@ -7,7 +7,13 @@ const PaceConverter = () => {
   const [currentUnit, setCurrentUnit] = useState('kmToMile');
   const [result, setResult] = useState('');
 
-  const convertPace = useCallback(() => {
+  // Move this hook after the function definition
+  React.useEffect(() => {
+    if (minutes === '' && seconds === '') {
+      setResult('Enter a pace above');
+      return;
+    }
+    
     const mins = parseInt(minutes) || 0;
     const secs = parseInt(seconds) || 0;
 
@@ -35,11 +41,7 @@ const PaceConverter = () => {
       const convertedSec = Math.round((convertedMinutes - convertedMin) * 60);
       setResult(`${mins}:${secs.toString().padStart(2, '0')} min/mile = ${convertedMin}:${convertedSec.toString().padStart(2, '0')} min/km`);
     }
-  }, [minutes, seconds, currentUnit]); // dependencies for useCallback
-
-  useEffect(() => {
-    convertPace();
-  }, [convertPace]); // convertPace is now a dependency
+  }, [minutes, seconds, currentUnit]); // Include all dependencies
 
   const containerVariants = {
     hidden: { opacity: 0, scale: 0.95 },
